@@ -27109,3 +27109,31 @@ Processing by UsersController#show as HTML
   Rendered layouts/_footer.html.erb (0.0ms)
 Completed 200 OK in 60ms (Views: 57.2ms | ActiveRecord: 0.3ms)
   [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (93.1ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "total_gross" decimal, "created_at" datetime, "updated_at" datetime, "description" text, "released_on" date, "cast" varchar(255), "director" varchar(255), "duration" varchar(255), "image_file_name" varchar(255)) [0m
+  [1m[35m (99.1ms)[0m  CREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "stars" integer, "comment" text, "movie_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (120.3ms)[0m  CREATE  INDEX "index_reviews_on_movie_id" ON "reviews" ("movie_id")
+  [1m[36m (70.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime, "admin" boolean DEFAULT 'f') [0m
+  [1m[35m (99.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (100.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (100.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151117075030')[0m
+  [1m[35m (100.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121121163535')
+  [1m[36m (83.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121210234158')[0m
+  [1m[35m (100.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121121180707')
+  [1m[36m (83.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121217184756')[0m
+  [1m[35m (83.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151105135951')
+  [1m[36m (95.1ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "total_gross" decimal, "created_at" datetime, "updated_at" datetime, "description" text, "released_on" date, "cast" varchar(255), "director" varchar(255), "duration" varchar(255), "image_file_name" varchar(255)) [0m
+  [1m[35m (74.2ms)[0m  CREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "stars" integer, "comment" text, "movie_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (76.1ms)[0m  CREATE  INDEX "index_reviews_on_movie_id" ON "reviews" ("movie_id")
+  [1m[36m (70.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime, "admin" boolean DEFAULT 'f') [0m
+  [1m[35m (75.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (83.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (83.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151117075030')[0m
+  [1m[35m (117.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121121163535')
+  [1m[36m (110.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121210234158')[0m
+  [1m[35m (83.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121121180707')
+  [1m[36m (75.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121217184756')[0m
+  [1m[35m (75.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151105135951')

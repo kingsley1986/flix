@@ -1,9 +1,10 @@
 require 'spec_helper'
 
-describe "Deleting a movie" do 
-  admin = User.create!(user_attributes(admin: true))
-  sign_in(admin)
-end
+describe "Deleting a movie" do
+  before do 
+    admin = User.create!(user_attributes(admin: true, email: 'another@addrss.com'))
+    sign_in(admin)
+  end
 
   it "destroys the movie and shows the movie listing without the deleted movie" do
     movie = Movie.create!(movie_attributes)
@@ -16,3 +17,4 @@ end
     expect(page).not_to have_text(movie.title)
     expect(page).to have_text("Movie successfully deleted!")
   end
+end
