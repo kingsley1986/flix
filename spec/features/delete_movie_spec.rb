@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "Deleting a movie" do
-  before do 
-    admin = User.create!(user_attributes(admin: true, email: 'another@addrss.com'))
+  before do
+    admin = User.create!(user_attributes(admin: true))
     sign_in(admin)
   end
 
