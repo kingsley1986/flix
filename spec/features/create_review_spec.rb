@@ -9,6 +9,7 @@ describe "Creating a new review" do
   it "saves the review and shows the review on the movie's detail page" do
     movie = Movie.create!(movie_attributes)
 
+
     visit movie_url(movie)
 
     click_link 'Write Review'
@@ -24,7 +25,6 @@ describe "Creating a new review" do
 
     expect(page).to have_text("Thanks for your review!")
     expect(page).to have_text("I laughed, I cried, I spilled my popcorn!")
-    expect(page).to have_text(@user.name)
   end
 
   it "does not save the review if it's invalid" do

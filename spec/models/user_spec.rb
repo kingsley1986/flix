@@ -12,8 +12,7 @@ describe "A user" do
   it "requires an email" do
     user = User.new(email: "")
     
-    user.valid? # populates errors
-    
+    expect(user.valid?).to eq(false)
     expect(user.errors[:email].any?).to eq(true)
   end
       
@@ -22,8 +21,7 @@ describe "A user" do
     emails.each do |email|
       user = User.new(email: email)
       
-      user.valid?
-
+      expect(user.valid?).to eq(false)
       expect(user.errors[:email].any?).to eq(false)
     end
   end
@@ -33,8 +31,7 @@ describe "A user" do
     emails.each do |email|
       user = User.new(email: email)
       
-      user.valid?
-
+      expect(user.valid?).to eq(false)
       expect(user.errors[:email].any?).to eq(true)
     end
   end
@@ -43,7 +40,7 @@ describe "A user" do
     user1 = User.create!(user_attributes)
 
     user2 = User.new(email: user1.email.upcase)
-    user2.valid?
+    expect(user2.valid?).to eq(false)
     expect(user2.errors[:email].first).to eq("has already been taken")
   end
   
@@ -56,24 +53,21 @@ describe "A user" do
   it "requires a password" do
     user = User.new(password: "")
 
-    user.valid?
-
+    expect(user.valid?).to eq(false)
     expect(user.errors[:password].any?).to eq(true)
   end
 
   it "requires a password confirmation when a password is present" do
     user = User.new(password: "secret", password_confirmation: "")
 
-    user.valid?
-
+    expect(user.valid?).to eq(false)
     expect(user.errors[:password_confirmation].any?).to eq(true)
   end
 
   it "requires the password to match the password confirmation" do
     user = User.new(password: "secret", password_confirmation: "nomatch")
 
-    user.valid?
-
+    expect(user.valid?).to eq(false)
     expect(user.errors[:password_confirmation].first).to eq("doesn't match Password")
   end
 
