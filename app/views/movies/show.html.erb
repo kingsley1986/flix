@@ -15,6 +15,13 @@
   
   <p>
     <%= pluralize(@fans.size, 'fans') %>
+
+  <% if current_user %>
+  <% if @current_favorite %>
+ <%= button_to "Unfave", movie_favorite_path(@movie, @current_favorite), method: :delete %>
+  <% else %>
+    <%= button_to "Fave", movie_favorites_path(@movie) %>
+  <% end %>
   </p>
   <% if @fans.any? %>
   <h3>Fans</h3>
@@ -61,7 +68,8 @@
       <%= link_to 'Edit', edit_movie_path(@movie), class: 'button' %>
       <%= link_to 'Delete', @movie, 
         class: 'button',
-        method: :delete, data: { confirm: 'Are you sure?' } %>
+        method: :delete, data: { confirm: 'Are you sure?' } %> 
+        <% end %>
       <% end %>
     </nav>
   </footer>

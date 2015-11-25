@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe "Viewing an individual movie" do
+
+  before do
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+  
   it "shows the movie's details" do
     movie = Movie.create!(movie_attributes)
 
@@ -9,7 +15,7 @@ describe "Viewing an individual movie" do
     expect(page).to have_text(movie.title)
     expect(page).to have_text(movie.rating)
     expect(page).to have_text(movie.description)
-    expect(page).to have_text(movie.released_on)
+    expect(page).to have_text(movie.released_on)    
     expect(page).to have_text(movie.cast)
     expect(page).to have_text(movie.director)
     expect(page).to have_text(movie.duration)
@@ -31,4 +37,5 @@ describe "Viewing an individual movie" do
 
     expect(page).to have_text("Flop!")
   end
+  
 end
