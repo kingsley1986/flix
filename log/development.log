@@ -42185,3 +42185,2869 @@ Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-02 16:45:01 +0200
 
 
 Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-02 16:45:01 +0200
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-02 16:56:52 +0200
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  [1m[35m (0.1ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/_form.html.erb (20.1ms)
+  Rendered movies/edit.html.erb within layouts/application (20.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 106ms (Views: 103.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fuvks+rgbExndAZDKCtkS/IT89nng0CD08NiqpTsPgI=", "movie"=>{"title"=>"Iron Man", "description"=>"When wealthy industrialist Tony Stark is forced to build an armored suit after a life-threatening incident, he ultimately decides to use its technology to fight against evil.", "rating"=>"PG-13", "released_on(1i)"=>"2008", "released_on(2i)"=>"5", "released_on(3i)"=>"2", "total_gross"=>"318412101", "duration"=>"126 min", "image_file_name"=>"ironman.jpg", "genre_ids"=>["1", "8", "10", ""], "cast"=>"Robert Downey Jr., Gwyneth Paltrow and Terrence Howard", "director"=>"Jon Favreau"}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres"  WHERE "genres"."id" IN (1, 8, 10)[0m
+  [1m[35mGenre Load (0.0ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "characterizations" ("created_at", "genre_id", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-12-02 14:56:57.531857"], ["genre_id", 1], ["movie_id", 1], ["updated_at", "2015-12-02 14:56:57.531857"]]
+  [1m[35m (137.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 149ms (ActiveRecord: 138.2ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.0ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 70.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-02 16:56:57 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-02 16:56:58 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-02 16:56:58 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-02 16:56:58 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-02 16:56:58 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-02 16:56:58 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-02 14:57:03.426620')  ORDER BY "movies"."released_on" DESC[0m
+  Rendered movies/index.html.erb within layouts/application (6.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 74.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-02 16:57:03 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 08:53:18.538988')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_flashes.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 275ms (Views: 258.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 10:53:18 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 10:53:19 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 10:53:19 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 10:53:19 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 10:53:19 +0200
+
+
+Started GET "/session/new" for 127.0.0.1 at 2015-12-03 10:55:38 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_flashes.html.erb (0.3ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 66ms (Views: 65.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-12-03 10:55:47 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "email"=>"james@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'james@yahoo.com' LIMIT 1[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 89ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Exists (0.1ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 88ms (Views: 68.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 10:55:48 +0200
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 08:55:52.766861')  ORDER BY "movies"."released_on" DESC[0m
+  Rendered movies/index.html.erb within layouts/application (4.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 66ms (Views: 65.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 10:55:52 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 10:55:54 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.2ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 83ms (Views: 72.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/movies/1/favorites" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "movie_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "favorites" ("created_at", "movie_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", "2015-12-03 08:55:59.261414"], ["movie_id", 1], ["updated_at", "2015-12-03 08:55:59.261414"], ["user_id", 3]]
+  [1m[36m (135.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 146ms (ActiveRecord: 135.9ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 69.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 10:55:59 +0200
+
+
+Started DELETE "/movies/1/favorites/15" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+Processing by FavoritesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "movie_id"=>"1", "id"=>"15"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFavorite Load (0.3ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."id" = ? LIMIT 1  [["user_id", 3], ["id", 15]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "favorites" WHERE "favorites"."id" = ?  [["id", 15]]
+  [1m[36m (98.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 105ms (ActiveRecord: 99.8ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_flashes.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 78ms (Views: 72.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 10:56:11 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 77ms (Views: 73.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:23:43 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 75ms (Views: 69.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:24:17 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 78ms (Views: 74.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:05 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:27:06 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 70.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:28:55 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 70.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:29:00 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:30:36 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (Missing partial movies/_movie_sidebar_extras, application/_movie_sidebar_extras with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/kingsley/rails_ii_studio/flix/app/views"
+):
+    67: </article>
+    68: 
+    69: <% content_for :side do %>
+    70:  <%= render 'movie_sidebar_extras' %>
+    71:  
+    72:   <% if @fans.any? %>
+    73:   <h3>Fans</h3>
+  app/views/movies/show.html.erb:70:in `block in _app_views_movies_show_html_erb___443229514432346998_70081982232540'
+  app/views/movies/show.html.erb:69:in `_app_views_movies_show_html_erb___443229514432346998_70081982232540'
+
+
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.5ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:31:22 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.1ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (Missing partial movies/_movie_sidebar_extras, application/_movie_sidebar_extras with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/kingsley/rails_ii_studio/flix/app/views"
+):
+    67: </article>
+    68: 
+    69: <% content_for :side do %>
+    70:  <%= render 'movie_sidebar_extras' %>
+    71:  
+    72:   <% if @fans.any? %>
+    73:   <h3>Fans</h3>
+  app/views/movies/show.html.erb:70:in `block in _app_views_movies_show_html_erb___443229514432346998_70081980439780'
+  app/views/movies/show.html.erb:69:in `_app_views_movies_show_html_erb___443229514432346998_70081980439780'
+
+
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.8ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:31:38 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:31:39 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 68.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:42:39 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 79ms (Views: 74.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:47:35 +0200
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 11:49:16 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 4ms
+
+SyntaxError (/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:3: syntax error, unexpected '<', expecting keyword_end
+<article id="user">
+ ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:4: syntax error, unexpected '<'
+  <header>
+   ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:13: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze;     @reviews.each do |review| 
+                              ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:54: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/users/show.html.erb:3: syntax error, unexpected '<', expecting keyword_end
+  app/views/users/show.html.erb:4: syntax error, unexpected '<'
+  app/views/users/show.html.erb:13: syntax error, unexpected keyword_do_block, expecting keyword_end
+  app/views/users/show.html.erb:54: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 11:49:16 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 4ms
+
+SyntaxError (/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:3: syntax error, unexpected '<', expecting keyword_end
+<article id="user">
+ ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:4: syntax error, unexpected '<'
+  <header>
+   ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:13: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze;     @reviews.each do |review| 
+                              ^
+/home/kingsley/rails_ii_studio/flix/app/views/users/show.html.erb:54: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/users/show.html.erb:3: syntax error, unexpected '<', expecting keyword_end
+  app/views/users/show.html.erb:4: syntax error, unexpected '<'
+  app/views/users/show.html.erb:13: syntax error, unexpected keyword_do_block, expecting keyword_end
+  app/views/users/show.html.erb:54: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/kingsley/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.1.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Exists (0.1ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  [1m[36mMovie Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 65ms (Views: 62.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:51:13 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:51:14 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:51:14 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:51:14 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:51:14 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 09:51:38.286428')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 65ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 11:51:38 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 09:57:21.706049')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (8.1ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 83.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 11:57:21 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 11:57:22 +0200
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-03 11:57:30 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 1 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 86ms (Views: 74.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 11:57:34 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Exists (0.1ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  [1m[36mMovie Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 70ms (Views: 66.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 11:57:46 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 09:57:46.451372')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 67.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/session" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:18:51.295038')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 64ms (Views: 62.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:18:51 +0200
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:18:53 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 68.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 12:21:55 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:21:55.208987')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2015-12-03 12:21:57 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 61ms (Views: 60.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "email"=>"james@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'james@yahoo.com' LIMIT 1[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 69ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMovie Exists (0.1ms)[0m  SELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  [1m[36mReview Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 70ms (Views: 66.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:05 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:06 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:06 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:06 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:06 +0200
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:22:09.603488')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 70.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:09 +0200
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-03 12:22:10 +0200
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered shared/_errors.html.erb (0.4ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered movies/_form.html.erb (20.1ms)
+  Rendered movies/new.html.erb within layouts/application (21.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 83ms (Views: 81.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "movie"=>{"title"=>"", "description"=>"", "rating"=>"", "released_on(1i)"=>"2015", "released_on(2i)"=>"12", "released_on(3i)"=>"3", "total_gross"=>"", "duration"=>"", "image_file_name"=>"", "genre_ids"=>[""], "cast"=>"", "director"=>""}, "commit"=>"Create Movie"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered shared/_errors.html.erb (2.6ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered movies/_form.html.erb (11.6ms)
+  Rendered movies/new.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 78ms (Views: 73.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:14 +0200
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:22:16.228997')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 67.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:16 +0200
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 12:22:18 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMovie Exists (0.1ms)[0m  SELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  [1m[36mReview Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 69.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2015-12-03 12:22:20 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (8.2ms)
+  Rendered users/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 71.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/3" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "user"=>{"name"=>"James", "email"=>"james@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Account", "id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email") = LOWER('james@yahoo.com') AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mReview Exists (0.1ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 69ms (Views: 65.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:21 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:22 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:22 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:22 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:22 +0200
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 12:22:26 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mReview Exists (0.0ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 64ms (Views: 61.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-12-03 12:22:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movies" INNER JOIN "favorites" ON "movies"."id" = "favorites"."movie_id" WHERE "favorites"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mReview Exists (0.1ms)[0m  SELECT  1 AS one FROM "reviews"  WHERE "reviews"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:22:29.378754')  ORDER BY "movies"."released_on" DESC[0m
+  Rendered movies/index.html.erb within layouts/application (6.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 70ms (Views: 69.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 12:22:29 +0200
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:31 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.2ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 6 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36m (0.0ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 66.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/6/favorites" for 127.0.0.1 at 2015-12-03 12:22:33 +0200
+Processing by FavoritesController#create as HTML
+  Parameters: {"authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "movie_id"=>"6"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "favorites" ("created_at", "movie_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-12-03 10:22:33.884119"], ["movie_id", 6], ["updated_at", "2015-12-03 10:22:33.884119"], ["user_id", 3]]
+  [1m[35m (105.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies/6
+Completed 302 Found in 113ms (ActiveRecord: 105.9ms)
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.2ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 6 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 70.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:34 +0200
+
+
+Started GET "/movies/6/reviews" for 127.0.0.1 at 2015-12-03 12:22:37 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  Rendered reviews/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 67ms (Views: 63.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:39 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.1ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 6 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 79ms (Views: 75.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/6/reviews/new" for 127.0.0.1 at 2015-12-03 12:22:42 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"6"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered reviews/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 69.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/movies/6/reviews" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "review"=>{"comment"=>""}, "commit"=>"Post Review", "movie_id"=>"6"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_errors.html.erb (2.2ms)
+  Rendered reviews/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 68ms (Views: 63.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:44 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:45 +0200
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFavorite Load (0.1ms)[0m  SELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 6 LIMIT 1  [["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1  [["movie_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mGenre Load (0.0ms)[0m  SELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 68.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:46 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:47 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:47 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:47 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:47 +0200
+
+
+Started GET "/movies/6/edit" for 127.0.0.1 at 2015-12-03 12:22:49 +0200
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  [1m[35m (0.1ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "genres".id FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/_form.html.erb (17.5ms)
+  Rendered movies/edit.html.erb within layouts/application (19.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 85ms (Views: 81.7ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FwC6sCw2giE43hVaftzs+7Cp9XpbBwGvH1GBUNSHAwQ=", "movie"=>{"title"=>"Batman vs. Godzilla", "description"=>"An epic battle between The Caped Crusader and the fire-breathing dinosaur Gojira. Hang on to your popcorn, kids!", "rating"=>"PG-13", "released_on(1i)"=>"2015", "released_on(2i)"=>"11", "released_on(3i)"=>"29", "total_gross"=>"387623910", "duration"=>"211 min", "image_file_name"=>"batman-vs-godzilla.jpg", "genre_ids"=>[""], "cast"=>"Bruce Wayne, Gojira", "director"=>"Ishiro Honda"}, "commit"=>"Update Movie", "id"=>"6"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies/6
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mFavorite Load (0.1ms)[0m  [1mSELECT  "favorites".* FROM "favorites"  WHERE "favorites"."user_id" = ? AND "favorites"."movie_id" = 6 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."stars") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ? LIMIT 1[0m  [["movie_id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."movie_id" = ?  [["movie_id", 6]]
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres" INNER JOIN "characterizations" ON "genres"."id" = "characterizations"."genre_id" WHERE "characterizations"."movie_id" = ?[0m  [["movie_id", 6]]
+  Rendered movies/show.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.2ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/buttons.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/elements.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/favorites.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/genres.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/add.png" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/assets/batman-vs-godzilla.jpg" for 127.0.0.1 at 2015-12-03 12:22:52 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies"  WHERE (released_on <= '2015-12-03 10:22:54.336633')  ORDER BY "movies"."released_on" DESC
+  Rendered movies/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+  Rendered layouts/_sidebar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 86ms (Views: 85.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/spiderman.jpg" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+
+
+Started GET "/assets/superman.jpg" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+
+
+Started GET "/assets/batman.jpg" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+
+
+Started GET "/assets/catwoman.jpg" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+
+
+Started GET "/assets/ironman.jpg" for 127.0.0.1 at 2015-12-03 12:22:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_characterizations_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_characterizations_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_characterizations_on_movie_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_characterizations_on_movie_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_favorites_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_favorites_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_favorites_on_movie_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_favorites_on_movie_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_movie_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_movie_id' AND type='index'
+[0m
