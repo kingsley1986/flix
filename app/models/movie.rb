@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  before_validation :generate_slug
+
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :fans, through: :favorites, source: :user
@@ -6,7 +8,9 @@ class Movie < ActiveRecord::Base
   has_many :genres, through: :characterizations
 
 
-  validates :title, presence: true
+
+  validates :title, presence: true, uniqueness: true
+  validates :slug, uniqueness: true
   
   validates :released_on, :duration, presence: true
   
@@ -29,7 +33,17 @@ class Movie < ActiveRecord::Base
   scope :upcoming, -> {  where("released_on > ?", Time.now).order(released_on: :asc) }
   scope :rated, ->(rating) { released.where(rating: rating) }
   scope :recent, ->(max=5) { released.limit(max) }
-  
+
+
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug ||= title.parameterize if title
+  end
+
   def flop?
     total_gross.blank? || total_gross < 50000000
   end
